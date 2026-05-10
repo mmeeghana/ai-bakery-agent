@@ -208,23 +208,18 @@ gcloud run deploy bakery-agent \
 
 #  Screenshots
 
-## Relevant Query
+## AI Bakery Agent Interface
 
-_Add screenshot here_
-
----
-
-## Irrelevant Query
-
-_Add screenshot here_
+![AI Bakery Agent Interface](bakery_ai_agent.png)
 
 ---
 
-## Deployment
+## BigQuery Dataset Tables
 
-_Add deployed application screenshot here_
+![BigQuery Dataset Tables](bigquery.png)
 
 ---
+
 
 #  Learning Outcomes
 
