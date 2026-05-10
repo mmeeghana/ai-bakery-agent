@@ -1,63 +1,103 @@
-# Launch My Bakery: Google remote MCP demo 
+## AI Bakery Intelligence Agent
 
-[![Google Cloud](https://img.shields.io/badge/Blog-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)](https://cloud.google.com/blog/products/ai-machine-learning/announcing-official-mcp-support-for-google-services)
-[![Codelab](https://img.shields.io/badge/Codelab-58A55d.svg?style=for-the-badge&logo=devbox&logoColor=white)](https://codelabs.developers.google.com/adk-mcp-bigquery-maps#0)
-[![Screencast](https://img.shields.io/badge/Screencast-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/watch?v=wzccErUYhTI&t=1s)
+An AI-powered bakery business intelligence agent built using **Google ADK**, **MCP (Model Context Protocol)**, **Gemini**, **BigQuery**, and **Google Maps APIs**.
 
-This directory contains the data artifacts and infrastructure setup scripts for the **MCP support for BigQuery & Google Maps** demo.  
+This project helps analyze bakery business opportunities using:
+-  Location intelligence
+-  Foot traffic analysis
+-  Competitor research
+-  Pricing strategy
+-  Revenue forecasting
+-  Real-world maps validation
 
-## Demo Overview
+---
 
-This scenario demonstrates an AI Agent's ability to orchestrate enterprise data (BigQuery) and real-world geospatial context (Google Maps) to solve a complex business problem: 
+#  Live Demo
 
-> **"How would you help a friend launch a new high-end sourdough bakery in Los Angeles?"**
+🔗 Live Application:  
+https://bakery-agent-582484789707.asia-south1.run.app
 
-The agent autonomously queries BigQuery to find macro trends and uses Google Maps to validate micro-location details. The demo relies on three key datasets:
+🔗 GitHub Repository:  
+https://github.com/mmeeghana/ai-bakery-agent
 
-1.  **Demographics:** To identify neighborhoods with high foot traffic using census data (Macro Discovery).
-2.  **Market Data:** To analyze competitor pricing and suggest a premium price point (Pricing Strategy).
-3.  **Sales History:** To forecast potential revenue based on comparable store trends (Forecasting).
+---
 
-### Architecture Diagram
+#  Tech Stack
+
+- Google ADK
+- Gemini 3 Pro
+- MCP (Model Context Protocol)
+- BigQuery
+- Google Maps APIs
+- Python
+- Cloud Run
+- Google Cloud Platform
+
+---
+
+#  Project Overview
+
+This project demonstrates how AI agents can combine:
+- Enterprise analytics from BigQuery
+- Real-world geospatial intelligence from Google Maps
+- MCP tool orchestration
+- Gemini reasoning capabilities
+
+The AI agent autonomously performs:
+- Business analysis
+- Market research
+- Revenue forecasting
+- Location validation
+- Competitor analysis
+
+---
+
+#  Architecture Diagram
 
 ![Architecture Diagram](architecture_diagram.png)
 
-The diagram above illustrates the flow of information in this demo. The Agent, powered by Gemini 3 Pro Preview, orchestrates requests between the user and Google Cloud services. It uses a remote (Google hosted) MCP server to securely access BigQuery for demographic and sales data, and Google Maps APIs for real-world location analysis and validation.
+The AI Agent uses:
+- Gemini for reasoning
+- MCP servers for tool orchestration
+- BigQuery for analytics
+- Google Maps APIs for geospatial intelligence
 
-## Repository Structure
+---
+
+#  Repository Structure
 
 ```text
 launchmybakery/
-├── data/                        # Pre-generated CSV files for BigQuery
+├── data/
 │   ├── demographics.csv
 │   ├── bakery_prices.csv
 │   ├── sales_history_weekly.csv
 │   └── foot_traffic.csv
-├── adk_agent/                   # AI Agent Application (ADK)
-│   └── mcp_bakery_app/          # App directory
-│       ├── agent.py             # Agent definition
-│       └── tools.py             # Custom tools for the agent
-├── setup/                       # Infrastructure setup scripts
-│   ├── setup_bigquery.sh        # Script to provision BigQuery dataset and tables
-│   └── setup_env.sh             # Script to set up environment variables
-├── cleanup/                     # Infrastructure clean up environment
-│   ├── cleanup_env.sh           # Script to remove resources in environment
-└── README.md                    # This documentation
+│
+├── adk_agent/
+│   └── mcp_bakery_app/
+│       ├── agent.py
+│       ├── tools.py
+│       └── Dockerfile
+│
+├── setup/
+│   ├── setup_bigquery.sh
+│   └── setup_env.sh
+│
+├── cleanup/
+│   └── cleanup_env.sh
+│
+└── README.md
 ```
 
-## Prerequisites
-
-*   **Google Cloud Project** with billing enabled.
-*   **Google Cloud Shell** (Recommended) or a local terminal with the `gcloud` CLI installed.
-
-## Deployment Guide
+## Setup Instructions
 
 Follow these steps in **Google Cloud Shell** to provision the demo environment.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/google/mcp.git
-cd mcp/examples/launchmybakery
+git clone https://github.com/mmeeghana/ai-bakery-agent.git
+cd ai-bakery-agent
 ```
 
 ### 2. Authenticate with Google Cloud
@@ -68,10 +108,6 @@ Run the following command to authenticate with your Google Cloud account. This i
 gcloud config set project [YOUR-PROJECT-ID]
 gcloud auth application-default login
 ```
-
-Follow the prompts to complete the authentication process.
-
-⚠️ Note: ADK does not automatically refresh your OAuth 2.0 token. If your chat session lasts more than 60 minutes, you may need to re-authenticate using the command above.
 
 ### 3. Configure Environment
 
@@ -122,6 +158,7 @@ cd adk_agent/
 adk web --allow_origins 'regex:https://.*\.cloudshell\.dev'
 ```
 
+
 ### 6. Chat with the Agent
 
 Open the link provided by `adk web` in your browser. You can now chat with the agent and ask it questions about the bakery data.
@@ -145,9 +182,66 @@ chmod +x cleanup/cleanup_env.sh
 ./cleanup/cleanup_env.sh
 ```
 
-## Data Logic & Narratives
+## Cloud Run Deployment
+This project is deployed using Google Cloud Run.
 
-The data in this repository is synthetic but structured to support specific demo narratives and successful agent reasoning chains.
+Deployment command:
+```bash
+gcloud run deploy bakery-agent \
+--source . \
+--region asia-south1 \
+--allow-unauthenticated
+```
+
+##  Key Features
+
+-  AI-powered business intelligence
+-  MCP multi-tool orchestration
+-  Google Maps integration
+-  BigQuery analytics
+-  Gemini reasoning
+-  Revenue forecasting
+-  Location intelligence
+-  Cloud deployment
+
+---
+
+#  Screenshots
+
+## Relevant Query
+
+_Add screenshot here_
+
+---
+
+## Irrelevant Query
+
+_Add screenshot here_
+
+---
+
+## Deployment
+
+_Add deployed application screenshot here_
+
+---
+
+#  Learning Outcomes
+
+Through this project, I learned:
+
+- AI Agent Development
+- MCP Architecture
+- Google ADK
+- BigQuery Integration
+- Maps APIs
+- Cloud Deployment
+- Multi-tool orchestration
+- AI-powered analytics systems
+
+---
+
+#  Dataset Narrative Logic
 
 | Table | Demo Purpose | Narrative Logic |
 | :--- | :--- | :--- |
@@ -155,3 +249,33 @@ The data in this repository is synthetic but structured to support specific demo
 | **`demographics`** | **Community Profiling**<br>Analyzing market depth. | **Santa Monica (90403)** is modeled with a dense, established residential population, providing a stable baseline for customer volume. |
 | **`bakery_prices`** | **Pricing Strategy**<br>Setting a price point. | **Erewhon Market** has the highest price ceiling for a Sourdough Loaf (~$18.50), while the market average is ~$8.20. This allows the Agent to confidently suggest a premium price point of ~$15-18. |
 | **`sales_history`** | **Forecasting**<br>Predicting growth. | **Silver Lake** shows aggressive week-over-week growth trends, while **Playa Vista** represents a stable, high-volume flagship store, providing distinct patterns for forecasting models. |
+
+---
+
+#  Dataset Descriptions
+
+| Dataset | Purpose | Description |
+| :--- | :--- | :--- |
+| **`demographics`** | **Population Analysis**<br>Understanding neighborhood demographics. | Used to analyze residential density, customer potential, and neighborhood characteristics for identifying suitable bakery locations. |
+| **`bakery_prices`** | **Competitor Pricing**<br>Market pricing strategy. | Helps compare bakery product prices across different locations to determine premium pricing opportunities for sourdough products. |
+| **`foot_traffic`** | **Location Intelligence**<br>Foot traffic and activity analysis. | Used to identify areas with high morning and evening activity, helping the agent recommend optimal bakery locations. |
+| **`sales_history_weekly`** | **Revenue Forecasting**<br>Sales trend prediction. | Contains historical weekly sales data used for forecasting future revenue, estimating product demand, and analyzing growth patterns. |
+
+
+#  Acknowledgements
+
+This project is inspired by the Google MCP + ADK Codelab and extended with deployment, GitHub integration, and production setup.
+
+## Official References
+
+- https://github.com/google/mcp
+- https://codelabs.developers.google.com/adk-mcp-bigquery-maps
+
+---
+
+# 👩‍💻 Author
+
+**Meghana Batchalakuri**
+
+GitHub:  
+https://github.com/mmeeghana
